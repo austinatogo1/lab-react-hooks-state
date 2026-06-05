@@ -118,3 +118,12 @@
 .app.dark .section-heading .count {
   color: #999;
 }
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 24px;
+  width: 100%;
+  margin-top: 24px;
+  box-sizing: border-box;
+}

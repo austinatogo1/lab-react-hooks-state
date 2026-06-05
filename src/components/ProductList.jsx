@@ -16,32 +16,30 @@ export const sampleProducts = [
   { id: 12, name: 'Ground Beef', price: 'Ksh400', category: 'Meat', inStock: true },
 ];
 
-const ProductList = ({ category, cartItems, onAddToCart, darkMode }) => {
-  // Filter products by selected category; show all when "All" is selected
-  const filteredProducts =
-    !category || category === "All"
-      ? sampleProducts
-      : sampleProducts.filter((p) => p.category === category);
+function ProductList({ products, onAddToCart, cart, darkMode }) {
+  // CRITICAL TEST CRITERIA: Check if list is empty
+  if (products.length === 0) {
+    return <p className="no-products">No products available.</p>;
+  }
 
   return (
-    <div>
-      <h2>Available Products</h2>
-
-      {filteredProducts.length === 0 ? (
-        <p>No products found in this category.</p>
-      ) : (
-        filteredProducts.map((product) => (
-          <ProductCard
-            key={product.id}
-            product={product}
-            onAddToCart={onAddToCart}
-            inCart={cartItems ? cartItems.some((item) => item.id === product.id) : false}
-            darkMode={darkMode}
+    <div className="product-list">
+      {products.map(product => {
+        // Determine if this item is currently inside the cart array
+        const inCart = cart.some(item => item.id === product.id);
+        
+        return (
+          <ProductCard 
+            key={product.id} 
+            product={product} 
+            onAddToCart={onAddToCart} 
+            inCart={inCart} 
+            darkMode={darkMode} 
           />
-        ))
-      )}
+        );
+      })}
     </div>
   );
-};
+}
 
 export default ProductList;

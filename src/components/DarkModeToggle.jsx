@@ -1,16 +1,14 @@
-import React from 'react'
-import styles from "../styles/DarkMode.module.css";
- 
-function DarkModeToggle({ darkMode, onToggle }) {
+import React from 'react';
+
+function DarkModeToggle({ darkMode, setDarkMode }) {
   return (
-    <button
-      className={`${styles.toggleBtn} ${darkMode ? styles.dark : ""}`}
-      onClick={onToggle}
+    <button 
+      onClick={() => setDarkMode(!darkMode)}
+      className="toggle-btn"
     >
-      {darkMode ? "☀️ Toggle Light Mode" : "🌙 Toggle Dark Mode"}
+      {darkMode ? "Toggle Light Mode" : "Toggle Dark Mode"}
     </button>
   );
 }
- 
+
 export default DarkModeToggle;
- 
