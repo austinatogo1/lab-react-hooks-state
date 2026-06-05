@@ -1,42 +1,120 @@
-#root {
-  max-width: 1280px;
+.app {
+  min-height: 100vh;
+  background: #f7f8fa;
+  color: #111;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  transition: background 0.3s, color 0.3s;
+}
+
+.app.dark {
+  background: #121212;
+  color: #f0f0f0;
+}
+
+.app-header {
+  background: #fff;
+  border-bottom: 1px solid #e0e0e0;
+  padding: 16px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.app.dark .app-header {
+  background: #1a1a1a;
+  border-bottom-color: #333;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.cart-badge {
+  background: #e8f5ed;
+  color: #2a7d45;
+  border-radius: 20px;
+  padding: 6px 14px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.app.dark .cart-badge {
+  background: #2a3d2f;
+  color: #7ecb8f;
+}
+
+.app-main {
+  max-width: 900px;
   margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  padding: 24px 20px;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.filter-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.filter-row label {
+  font-weight: 600;
+  font-size: 14px;
+  color: #666;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+.app.dark .filter-row label {
+  color: #999;
 }
 
-.card {
-  padding: 2em;
+.filter-row select {
+  padding: 8px 14px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+  color: #111;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  outline: none;
 }
 
-.read-the-docs {
-  color: #888;
+.app.dark .filter-row select {
+  background: #1a1a1a;
+  border-color: #333;
+  color: #f0f0f0;
+}
+
+.section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 16px;
+}
+
+.section-heading h2 {
+  font-weight: 700;
+  font-size: 18px;
+  margin: 0;
+}
+
+.section-heading .count {
+  font-size: 13px;
+  color: #666;
+}
+
+.app.dark .section-heading .count {
+  color: #999;
 }
