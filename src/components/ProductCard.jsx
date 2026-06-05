@@ -17,6 +17,7 @@ function ProductCard({ product, onAddToCart, inCart, darkMode }) {
       ) : (
         <button
           className={`${styles.addBtn} ${darkMode ? styles.addBtnDark : ""}`}
+          data-testid={`product-${product.id}`} 
           onClick={() => onAddToCart(product)}
         >
           Add to Cart
